@@ -1,5 +1,5 @@
 export const up = (knex: any, promise: Promise<any>) => {
-  return knex.schema.createTable('account', (table) => {
+  return knex.schema.createTable('account', (table: { increments: (arg0: string) => void; string: (arg0: string) => void; }) => {
     table.increments('id')
     table.string('status')
   });
