@@ -7,6 +7,11 @@ interface IAccount {
   status: string;
 }
 
+interface IHistory {
+  id: string;
+  event: string;
+}
+
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -22,7 +27,7 @@ app.post('/approve-signups', async (req, res) => {
       .update({ status: 'ACTIVE' })
       .transacting(trx);
     // simulate some long running process
-    await wait(5000);
+    await wait(10000);
     return res.status(200).json({ accounts });
   });
 });
@@ -30,6 +35,11 @@ app.post('/approve-signups', async (req, res) => {
 app.get('/accounts', async (req, res) => {
   const accounts = await knex<IAccount>('account').where({});
   return res.status(200).json({ accounts });
+});
+
+app.get('/history', async (req, res) => {
+  const history = await knex<IHistory>('history').where({});
+  return res.status(200).json({ history });
 });
 
 app.listen(port, async () => {
