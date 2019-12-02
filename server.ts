@@ -27,6 +27,11 @@ app.post('/approve-signups', async (req, res) => {
   });
 });
 
+app.get('/accounts', async (req, res) => {
+  const accounts = await knex<IAccount>('account').where({});
+  return res.status(200).json({ accounts });
+});
+
 app.listen(port, async () => {
   await initialiseDatabase();
   console.log(`database-transactions server running on ${port}`);
