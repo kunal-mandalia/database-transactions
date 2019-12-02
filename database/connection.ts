@@ -1,3 +1,3 @@
-import * as Knex from 'knex';
-const knexfile = require('../knexfile');
+import Knex from 'knex';
+import knexfile from '../knexfile';
 export const knex = Knex(knexfile.development);

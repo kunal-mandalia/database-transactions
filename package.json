@@ -5,7 +5,8 @@
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node server.ts"
+    "start": "ts-node server.ts",
+    "dev": "ts-node-dev server.ts"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,11 @@
     "express": "^4.17.1",
     "knex": "^0.20.3",
     "sqlite3": "^4.1.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "waait": "^1.0.5"
   },
   "devDependencies": {
-    "ts-node": "^8.5.4"
+    "ts-node": "^8.5.4",
+    "ts-node-dev": "^1.0.0-pre.44"
   }
 }
